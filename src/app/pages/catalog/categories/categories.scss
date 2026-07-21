@@ -1,0 +1,14 @@
+.categories {
+    height: 115px;
+    width: 115px;
+    background-color: darkgrey;
+    border-radius: 16px;
+    display: flex;
+    
+    
+
+    &__name {
+        margin: 0;
+        padding: 8px;
+    }
+}

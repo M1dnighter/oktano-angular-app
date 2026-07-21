@@ -1,0 +1,8 @@
+<header class="menu-header">
+    <h1 class="menu-header__category-title">{{ category()?.name }}</h1>
+</header>
+
+
+@for (product of menu.products(); track product.id) {
+    <p>{{product.name}}</p>
+  }

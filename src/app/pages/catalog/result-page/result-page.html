@@ -1,0 +1,13 @@
+<p>result-page works!</p>
+
+<!-- <app-card>
+    
+<app-address> -->
+
+<div class="categories-list">
+  @for (category of menu.categories(); track category.id) {
+    <app-categories [category]="category"></app-categories>
+  }
+</div>
+
+
