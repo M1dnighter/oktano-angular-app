@@ -1,0 +1,18 @@
+<a class="category-card" [routerLink]="['/product', product().id]">
+    <figure class="category-card__figure">
+        @if(product().image) {
+            <img class="category-card__image" [src]="product().image" [alt]="product().name">
+        }
+        @else {
+            <div class="skeleton"></div>
+        }
+    </figure>
+
+    <div class="category-card__info">
+        <h2 class="category-card__name">{{product().name}}</h2>
+        <p class="category-card__composition">{{product().composition.join(', ')}}</p>
+        <button class="category-card__price-button">
+            <p class="category-card__price-text">{{product().price}} ₽</p>
+        </button>
+    </div>
+</a>

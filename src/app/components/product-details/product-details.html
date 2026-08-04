@@ -1,0 +1,21 @@
+<article class="product-detail">
+    <figure class="product-detail__figure">
+        @if(product().image) {
+            <img class="product-detail__image" [src]="product().image" [alt]="product().name">
+        }
+        @else {
+            <div class="skeleton"></div>
+        }
+    </figure>
+
+    <div class="product-detail__info">
+        <h1 class="product-detail__name">{{product().name}}</h1>
+        <p class="product-detail__weight">{{product().weight}}</p>
+        <p class="product-detail__description">{{product().description}}</p>
+        <p class="product-detail__full-composition">Состав: {{product().full_composition}}</p>
+    </div>
+
+    <button class="product-detail__price-button">
+        <p class="product-detail__price-text">В корзину {{product().price}} ₽</p>
+    </button>
+</article>

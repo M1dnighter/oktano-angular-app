@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit } from '@angular/core';
-import { Address } from '../address/address';
 import { Categories } from '../categories/categories';
-import { Menu } from '../../../services/menu';
+import { CategoryService } from '../../../core/services/category.service';
+
 
 @Component({
   selector: 'app-result-page',
@@ -12,9 +12,9 @@ import { Menu } from '../../../services/menu';
 })
 export class ResultPage implements OnInit{
 
-  readonly menu = inject(Menu);
+  readonly categories = inject(CategoryService);
 
   ngOnInit(): void {
-    this.menu.loadCategories();
+    this.categories.loadCategories();
   }
 }

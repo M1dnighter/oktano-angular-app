@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
-import { ICategory } from '../../../services/menu';
 import { RouterModule } from '@angular/router';
+import { ICategory } from '../../../core/models/category.interface';
 
 @Component({
   selector: 'app-categories',

@@ -1,0 +1,30 @@
+.menu {
+    min-height: 100vh;
+    background-color: #F4F6F6;
+
+    &__header {
+        display: grid;
+        place-items: center;
+
+        height: 186px;
+        border-radius: 16px 16px 0px 0px;
+    }
+
+    &__category-title {
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(361px, 1fr));
+    }
+
+    &__product {
+        padding: 12px;
+    }
+}
+
+.skeleton {
+    border-radius: 16px 16px 0px 0px;
+}
