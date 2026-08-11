@@ -4,6 +4,7 @@ export interface IProduct {
   name: string;
   image: string;
   description: string;
+  ingredientIds: number[];
   composition: string[];
   price: number;
   full_composition: string;
@@ -12,8 +13,8 @@ export interface IProduct {
 
 export interface IIngredient {
   id: number;
-  ingredients: string[];
+  name: string;
   image: string;
-  weight: string;
   price: number;
+  weight: string;
 }

@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { CategoryCard } from '../../../components/category-card/category-card';
 import { CategoryService } from '../../../core/services/category.service';
 import { ProductService } from '../../../core/services/product.service';
+import { TapBar } from '../../../components/tap-bar/tap-bar';
 
 @Component({
   selector: 'app-category-menu',
   standalone: true,
-  imports: [CategoryCard],
+  imports: [CategoryCard, TapBar],
   templateUrl: './category-menu.html',
   styleUrl: './category-menu.scss',
 })

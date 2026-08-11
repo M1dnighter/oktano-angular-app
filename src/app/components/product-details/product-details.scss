@@ -51,6 +51,31 @@
         color: #1A272D;
     }
 
+    &__ingredients-title {
+        margin: 24px 0 12px;
+
+        font-size: 24px;
+        font-weight: 700;
+
+        color: #1A272D;
+    }
+
+    &__ingredients {
+        display: flex;
+        gap: 12px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        padding-bottom: 8px;
+
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
     &__full-composition {
         margin: 24px 0 0;
 

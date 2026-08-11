@@ -1,0 +1,25 @@
+<header class="page-header">
+    <h1 class="page-header__title">Профиль</h1>
+</header>
+<main class="profile">
+    @if (userService.isAuthorized()) {
+        <p>{{ userService.user()?.name }}</p>
+        <p>{{ userService.user()?.phone }}</p>
+
+        <button (click)="userService.logout()">
+            Выйти
+        </button>
+    }
+    @else {
+        <div class="profile__warning">
+            <p>Добрый день!</p>
+            <p>Войдите или зарегестрируйтесь, чтобы оформить заказ, участвовать в акциях и многое другое!</p>
+        </div>
+        <button class="profile__authorization">Авторизация</button>
+        <div class="profile__support">
+            <p>Нужна помощь?</p>
+            <button class="profile__support-button">Чат с поддержкой</button>
+        </div>
+    }
+</main>
+<app-tap-bar></app-tap-bar>

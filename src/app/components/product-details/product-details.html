@@ -12,10 +12,26 @@
         <h1 class="product-detail__name">{{product().name}}</h1>
         <p class="product-detail__weight">{{product().weight}}</p>
         <p class="product-detail__description">{{product().description}}</p>
+
+        @if (ingredients().length > 0) {
+            <h2 class="product-detail__ingredients-title">
+                Добавить к блюду:
+            </h2>
+
+            <div class="product-detail__ingredients">
+
+                @for (ingredient of ingredients(); track ingredient.id) {
+                    <app-ingredient-card
+                        [ingredient]="ingredient">
+                    </app-ingredient-card>
+                }
+
+            </div>
+        }
         <p class="product-detail__full-composition">Состав: {{product().full_composition}}</p>
     </div>
 
     <button class="product-detail__price-button">
-        <p class="product-detail__price-text">В корзину {{product().price}} ₽</p>
+        <p class="product-detail__price-text">В корзину {{productService.totalPrice()}} ₽</p>
     </button>
 </article>

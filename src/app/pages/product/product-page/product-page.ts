@@ -18,6 +18,7 @@ export class ProductPage implements OnInit {
   readonly productService = inject(ProductService);
 
   readonly product = this.productService.selectedProduct;
+  readonly ingredients = this.productService.ingredients;
 
   ngOnInit(): void {
 

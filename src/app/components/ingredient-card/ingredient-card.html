@@ -1,0 +1,13 @@
+<button class="card" (click)="onClick()" [class.card--selected]="selected()">
+    <figure class="card__figure">
+        @if(ingredient().image) {
+            <img class="card__image" [src]="ingredient().image" [alt]="ingredient().name">
+        }
+        @else {
+            <div class="skeleton"></div>
+        }
+    </figure>
+    <p class="card__name">{{ ingredient().name }}</p>
+    <p class="card__weight">{{ ingredient().weight }}</p>
+    <p class="card__price">{{ ingredient().price }} ₽</p>
+</button>
