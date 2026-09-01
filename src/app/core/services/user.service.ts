@@ -19,44 +19,6 @@ export class UserService {
   readonly loading = signal(false);
   readonly error = signal<string | null>(null);
 
-  // loadUser(phone: string): void {
-
-  //   this.loading.set(true);
-  //   this.error.set(null);
-
-  //   this.http
-  //     .get<IUser[]>(`${this.userUrl}?phone=${phone}`)
-  //     .subscribe({
-
-  //       next: users => {
-
-  //         console.log('Users:', users);
-
-  //         if (users.length === 0) {
-
-  //           this.user.set(null);
-  //           this.error.set('Пользователь не найден');
-
-  //         } else {
-
-  //           this.user.set(users[0]);
-
-  //         }
-
-  //         this.loading.set(false);
-
-  //       },
-
-  //       error: err => {
-
-  //         this.error.set(err.message);
-  //         this.loading.set(false);
-
-  //       }
-
-  //     });
-
-  // }
   loadUser(phone: string): void {
     this.loading.set(true);
     this.error.set(null);

@@ -1,0 +1,200 @@
+<main class="login">
+
+    @switch (step()) {
+
+        @case (1) {
+
+            <section class="login__step login__step--phone">
+
+                <figure class="login__illustration">
+                    <img
+                        class="login__image"
+                        src=""
+                        alt="Иллюстрация блюда"
+                    >
+                </figure>
+
+                <header class="login__header">
+                    <h1 class="login__title">
+                        Добро пожаловать!
+                    </h1>
+
+                    <p class="login__description">
+                        Введите номер телефона для
+                        <br>
+                        регистрации или входа
+                    </p>
+                </header>
+
+                <form
+                    class="login__form"
+                    (submit)="$event.preventDefault(); nextStep()"
+                >
+
+                    <label
+                        class="login__label"
+                        for="phone"
+                    >
+                        Номер телефона
+                    </label>
+
+                    <input
+                        class="login__input"
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        inputmode="numeric"
+                        autocomplete="tel"
+                        placeholder="+7 (___) ___-__-__"
+                        (input)="onPhoneInput($event)"
+                    >
+
+                    <button
+                        class="login__button"
+                        type="submit"
+                        [disabled]="!isPhoneValid()"
+                    >
+                        Продолжить
+                    </button>
+
+                </form>
+
+                <footer class="login__footer">
+                    <p class="login__agreement">
+                        Продолжая, вы подтверждаете, что соглашаетесь с
+                        <br>
+                        <a
+                            class="login__agreement-link"
+                            href="#"
+                        >
+                            политикой конфиденциальности
+                        </a>
+                    </p>
+                </footer>
+
+            </section>
+
+        }
+
+        @case (2) {
+
+            <section class="login__step login__step--code">
+
+                <header class="login__header">
+
+                    <h1 class="login__title">
+                        Введите код из СМС
+                    </h1>
+
+                    <p class="login__description">
+                        Отправили на номер
+                        <br>
+                        <strong>{{ userPhone() }}</strong>
+                    </p>
+
+                </header>
+
+                <div class="login__code" [class.login__code--error]="codeError()">
+
+                    @for (value of codeInputs(); track $index) {
+
+                        <input
+                            #codeInput
+                            class="login__code-input"
+                            [class.login__code-input--error]="codeError()"
+                            type="text"
+                            inputmode="numeric"
+                            maxlength="1"
+                            [value]="value"
+                            (input)="onCodeInput($event, $index)"
+                            (keydown)="onCodeKeydown($event, $index)"
+                            [attr.aria-label]="'Цифра ' + ($index + 1)"
+                        >
+
+                    }
+
+                </div>
+
+                @if (codeError()) {
+                    <p class="login__code-error">
+                        Неверный код
+                    </p>
+                }
+
+                @if (canRequestNewCode()) {
+                        <button class="login__resend-button" type="button" (click)="requestNewCode()">
+                            Запросить новый код
+                        </button>
+                } @else {
+
+                    <p class="login__timer">
+                        Запросить новый код можно через
+                        <br>
+
+                        <span class="login__timer-value">
+                            {{ timer() }} сек.
+                        </span>
+                    </p>
+                }
+
+            </section>
+
+        }
+
+        @case (3) {
+
+            <section class="login__step login__step--name">
+
+                <header class="login__header">
+
+                    <a
+                        class="login__skip"
+                        href="#"
+                    >
+                        Пропустить
+                    </a>
+
+                    <h1 class="login__title">
+                        Как Вас зовут?
+                    </h1>
+
+                    <p class="login__description">
+                        Введите Ваше имя для успешной регистрации
+                    </p>
+
+                </header>
+
+                <form class="login__form">
+
+                    <label
+                        class="login__label"
+                        for="name"
+                    >
+                        Ваше имя
+                    </label>
+
+                    <input
+                        class="login__input"
+                        id="name"
+                        name="name"
+                        type="text"
+                        autocomplete="name"
+                        placeholder="Введите имя"
+                    >
+
+                    <button
+                        class="login__button"
+                        type="button"
+                    >
+                        Авторизоваться
+                    </button>
+
+                </form>
+
+            </section>
+
+        }
+
+    }
+
+</main>
